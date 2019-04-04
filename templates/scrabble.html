@@ -1,0 +1,42 @@
+<html>
+  <head> 
+  </head>
+  <body>
+  	<h2>Musical Theater Song Recommender!</h2>
+  	<p>
+  	select song: 
+  	<select id="select-song" name="colour" method="GET" action="/"  onchange="myfunc()">
+  		<option value="{{colours[0]}}" selected>{{colours[0]}}</option>
+  		{% for colour in colours[1:] %}
+    	<option value="{{colour}}">{{colour}}</option>
+  		{% endfor %}
+	</select>
+    </p>
+	<div id='display-song'>
+		<div id='song'></div>
+	</div>
+
+	 <script type="text/javascript">
+
+	 	async function myfunc() {
+	 		const myNode = document.getElementById('song')
+	 		myNode.parentNode.removeChild(myNode)
+	 		const value = document.getElementById('select-song').value
+	 		const urlEncode = encodeURI(value)
+	 		// console.log(urlEncode)
+	  		const res = await fetch(`http://127.0.0.1:5000/api?value=${urlEncode}`)
+	  		const data = await res.text()
+	  		console.log(data)
+	  		const newNode = document.createElement('div')
+	  		newNode.innerHTML = data
+	  		newNode.setAttribute('id','song')
+	  		document.getElementById('display-song').appendChild(newNode)
+	 	}
+	 
+
+
+
+  </script>
+  </body>
+</html>
+
