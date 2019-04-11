@@ -6,5 +6,5 @@ I [scraped](/scrape_musical_lyrics.ipynb) my data from a basic html lyric site, 
 
 Using each song as a document, I used TF-IDF and NMF to [topic model](/topic_modeling_musicals.ipynb). I then used vader to peform [sentiment analysis](/sentiment_analysis_musicals.ipynb) and eventually built a recommedation system for songs, with additional music data from the spotify API ([beta flask recommendation app](/musical_recommender.py)).
 
-See key findings in my [presetation.](/MusicalPresentation.pdf)
+See key findings in my [presentation.](/MusicalPresentation.pdf)
 
